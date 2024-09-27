@@ -1,0 +1,77 @@
+//Processing of Shopping list
+#include<iostream>
+using namespace std;
+const int m=50;
+class Items
+{
+    int item_code[m];
+    float item_price[m];
+    int count;
+    public:
+    void CNT(void) { count = 0; };
+    void getitem(void);
+    void displaysum(void);
+    void remove(void);
+    void displayitems(void);
+};
+void Items::getitem(void)
+{
+    cout<<"Enter item code:"<<endl;
+    cin>>item_code[count];
+    cout<<"Enter item cost:"<<endl;
+    cin>>item_price[count];
+    count++;
+    }
+void Items::displaysum(void)
+{
+    float sum=0;
+    for(int i=0;i<count;i++)
+    sum=sum+item_price[i];
+    cout<<"\n Total Value:"<<sum<<"\n";
+}
+void Items::remove(void)
+{
+    int code;
+    cout<<"Enter item code to remove:"<<endl;
+    cin>>code;
+    for(int i=0;i<count;i++)
+    if(item_code[i]==code)
+    item_price[i]=0;
+}
+void Items::displayitems(void)
+{
+    cout<<"\n Code Price:"<<endl;
+    for(int i=0;i<count;i++)
+    {
+        cout<<item_code[i]<<"\n "<<endl;
+        cout<<item_price[i]<<endl;
+    }
+    cout<<"\n";
+}
+int main(){
+    Items order;
+    order.CNT();
+    int x;
+    do{
+        cout<<"\n You can do the following👉"
+        <<"Enter appropriate number:\n";
+        cout<<"\n1.Add item";
+        cout<<"\n2.Display total value";
+        cout<<"\n3.Remove item";
+        cout<<"\n4.Display all items:";
+        cout<<"\n5.Quit";
+        cout<<"\nWhat is your option?";
+        cin>>x;
+        switch(x)
+        {
+            case 1: order.getitem();break;
+            case 2: order.displaysum();break;
+            case 3: order.remove();break;
+            case 4: order.displayitems();break;
+            case 5: break;
+            default : cout<<"Error in input:Please try again!!\n";
+        }
+    }while(x!=5);
+    return 0;
+}
+

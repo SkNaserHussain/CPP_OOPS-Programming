@@ -19,7 +19,7 @@ public:
     GPA1() {
         cout << "Enter your grade point for " << sub << ": ";
         cin >> gp1;
-        cin.ignore();  // Clear newline character for further getline calls
+        cin.ignore();  
     }
 };
 
@@ -43,7 +43,7 @@ public:
 
     void display() {
         cout << "\nStudent: " << name << endl;
-        cout << "Subject: " << sub << endl;  // Single subject shared between GPA1 and GPA2
+        cout << "Subject: " << sub << endl;  
         cout << "Grade Point 1: " << gp1 << endl;
         cout << "Grade Point 2: " << gp2 << endl;
     }
